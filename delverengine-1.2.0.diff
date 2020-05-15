@@ -1,0 +1,32 @@
+Only in delverengine-1.2.0-mod: .gradle
+diff -u -r delverengine-1.2.0/DelvEdit/build.gradle delverengine-1.2.0-mod/DelvEdit/build.gradle
+--- delverengine-1.2.0/DelvEdit/build.gradle	Thu Mar 12 10:32:52 2020
++++ delverengine-1.2.0-mod/DelvEdit/build.gradle	Thu May 14 06:44:15 2020
+@@ -15,7 +15,7 @@
+ }
+ 
+ task dist(type: Jar) {
+-    from files(sourceSets.main.output.classesDir)
++    from files(sourceSets.main.output.classesDirs)
+     from files(sourceSets.main.output.resourcesDir)
+     from {configurations.compile.collect {zipTree(it)}}
+     from files(project.assetsDir);
+diff -u -r delverengine-1.2.0/DungeoneerDesktop/build.gradle delverengine-1.2.0-mod/DungeoneerDesktop/build.gradle
+--- delverengine-1.2.0/DungeoneerDesktop/build.gradle	Thu Mar 12 10:32:52 2020
++++ delverengine-1.2.0-mod/DungeoneerDesktop/build.gradle	Thu May 14 06:45:02 2020
+@@ -15,7 +15,7 @@
+ }
+ 
+ task dist(type: Jar) {
+-    from files(sourceSets.main.output.classesDir)
++    from files(sourceSets.main.output.classesDirs)
+     from files(sourceSets.main.output.resourcesDir)
+     from {configurations.compile.collect {zipTree(it)}}
+     from files(project.assetsDir);
+@@ -43,4 +43,4 @@
+     printer.setPreserveWhitespace(true)
+     printer.print(classpath)
+   }
+-}
+\ No newline at end of file
++}
