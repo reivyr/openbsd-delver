@@ -2,7 +2,7 @@
 set -e
 
 PKG=$(pkg_info | grep -E '^(apache-ant|jdk|openal|maven|rsync|lwjgl|xz|gradle)\-' | wc -l)
-if [ "$PKG" -eq 8 ]
+if [ "$PKG" -ge 8 ]
 then
 	echo "Packages installed: OK"
 else
@@ -32,10 +32,11 @@ gradle DungeoneerDesktop:dist
 cd ..
 
 # extract
+rm -fr unjar
 mkdir unjar
 cd unjar
 GAME_FOLDER=$PWD
-/usr/local/jdk*/bin/jar xvf ../delver.jar
+/usr/local/jdk-1.*/bin/jar xvf ../delver.jar
 
 # remove java files
 rm -fr com/badlogic
